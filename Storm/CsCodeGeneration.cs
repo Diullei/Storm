@@ -174,6 +174,20 @@ namespace Storm
 
                 #endregion
 
+                #region "BinaryExpression"
+
+                case "BinaryExpression":
+                    var binary = (syntax as BinaryExpression);
+                    sb.Append("(");
+                    sb.Append(binary.Left.ToString());
+                    sb.Append(string.Format(" {0} ", binary.Operator));
+                    sb.Append(binary.Right.ToString());
+                    sb.Append(")");
+
+                    break;
+
+                #endregion
+
             }
 
             return sb.ToString();
