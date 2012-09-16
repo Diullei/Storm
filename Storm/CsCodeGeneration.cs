@@ -167,7 +167,7 @@ namespace Storm
                 case "AssignmentExpression":
                     var assign = (syntax as AssignmentExpression);
                     sb.Append("this.private_" + assign.Left.ToString());
-                    sb.Append(" = ");
+                    sb.Append(assign.Operator);
                     sb.Append(assign.Right.ToString());
 
                     break;
