@@ -96,7 +96,7 @@ namespace Storm.Debugger
         {
             if (string.IsNullOrWhiteSpace(txtSource.Text))
             {
-                MessageBox.Show("You must provide same code to be compiled.");
+                MessageBox.Show("You must provide some code to be compiled.");
                 return;
             }
 
