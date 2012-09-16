@@ -1,0 +1,8 @@
+//css_classless MyNamespace.MyClass;
+
+static public void SayHello(string gritting)
+{
+	Console.WriteLine(gritting);
+}
+
+

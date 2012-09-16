@@ -1,0 +1,13 @@
+using System;
+
+void Main()
+{
+	SayHello("Hello World");
+}
+
+static void SayHello(string gritting)
+{
+	Console.WriteLine(gritting);
+}
+
+

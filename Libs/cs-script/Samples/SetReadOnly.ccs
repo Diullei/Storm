@@ -1,0 +1,12 @@
+using System.IO;
+using System.Windows.Forms;
+
+//this script is an example of classless C# script
+// Example: c:\>cscs SetReadOnly.ccs
+
+if (DialogResult.Yes == MessageBox.Show("Do you want to make all files in " + Environment.CurrentDirectory + " Read-Only?", "CS-Script", MessageBoxButtons.YesNo))
+{
+	foreach (string file in Directory.GetFiles(Environment.CurrentDirectory))
+		File.SetAttributes(file, FileAttributes.ReadOnly);
+}
+

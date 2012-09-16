@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>debug</Title>
+			<Shortcut>debug</Shortcut>
+			<Description>Code snippet for "VS debug settings" statement</Description>
+			<Author>Oleg Shilo</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>targer</ID>
+					<ToolTip>Target type (winexe, exe, library)</ToolTip>
+					<Default>winexe</Default>
+				</Literal>
+				<Literal>
+					<ID>args</ID>
+					<ToolTip>Script debug command line arguments</ToolTip>
+					<Default>Test argument</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[//css_dbg /t:$targer$, /args:"$args$";  
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

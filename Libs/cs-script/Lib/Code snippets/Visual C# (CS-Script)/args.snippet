@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>args</Title>
+			<Shortcut>args</Shortcut>
+			<Description>Code snippet for "default script arguments" statement</Description>
+			<Author>Oleg Shilo</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>expression1</ID>
+					<ToolTip>Script argument</ToolTip>
+					<Default>arg1</Default>
+				</Literal>
+				<Literal>
+					<ID>expression2</ID>
+					<ToolTip>Script argument</ToolTip>
+					<Default>arg2</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[//css_args $expression1$, $expression2$; 
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

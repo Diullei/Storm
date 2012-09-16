@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>include</Title>
+			<Shortcut>include</Shortcut>
+			<Description>Code snippet for "include script" statement</Description>
+			<Author>Oleg Shilo</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>expression</ID>
+					<ToolTip>Script file to include</ToolTip>
+					<Default>my_script</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[//css_include $expression$; 
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

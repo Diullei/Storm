@@ -1,0 +1,16 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# SharpDevelop 2.0.0.1462
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugScript", "DebugScript.csproj", "{4DB639FB-49EF-491D-8DE0-4BE2F8430717}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DB639FB-49EF-491D-8DE0-4BE2F8430717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB639FB-49EF-491D-8DE0-4BE2F8430717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB639FB-49EF-491D-8DE0-4BE2F8430717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB639FB-49EF-491D-8DE0-4BE2F8430717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>AsmHelper...Invoke</Title>
+			<Shortcut>AsmHelper...Invoke</Shortcut>
+			<Description>Code snippet for invoking the method of the script</Description>
+			<Author>Oleg Shilo</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>script</ID>
+					<ToolTip>Script file</ToolTip>
+					<Default>script</Default>
+				</Literal>
+				<Literal>
+					<ID>method</ID>
+					<ToolTip>Script method name (MyClass.MyMethod or *.MyMethod)</ToolTip>
+					<Default>method</Default>
+				</Literal>
+				<Literal>
+					<ID>arg1</ID>
+					<ToolTip>Method argument</ToolTip>
+					<Default>arg1</Default>
+				</Literal>
+				<Literal>
+					<ID>arg2</ID>
+					<ToolTip>Method argument</ToolTip>
+					<Default>arg2</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[AsmHelper helper = new AsmHelper(CSScript.Load($script$, null, false));
+			helper.Invoke($method$, $arg1$, $arg2$)	;
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

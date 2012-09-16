@@ -1,0 +1,14 @@
+using System.IO;
+
+var file = args[0];
+var wordToReplace = args[1];
+var replacementWord = args[2];
+
+var text = "";
+
+using (var fileIn = new StreamReader(file))
+    text = fileIn.ReadToEnd();
+
+using (var fileOut = new StreamWriter(file))
+    fileOut.Write(text.Replace(wordToReplace, replacementWord));	
+

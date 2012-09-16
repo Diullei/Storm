@@ -1,0 +1,104 @@
+<UserSettings>
+	<ApplicationIdentity version="8.0"/>
+	<ToolsOptions/>
+	<Category name="Environment_Group" RegisteredName="Environment_Group">
+		<Category name="Environment_CommandBars" Category="{B9D9C123-B500-4202-B887-57C829CBD08F}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_CommandBars" PackageName="Visual Studio Environment Package">
+			<CommandBars Version="05072811">
+				<DefaultCustomizations>
+					<add Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000462" CmdPri="00100001" Group="{D309F791-903F-11D0-9EFC-00A0C911004F}:0000019f" GroupPri="01000000" Menu="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000300"/>
+					<remove Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000105" CmdPri="03000000" Group="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000133" GroupPri="01000000" Menu="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000082"/>
+					<remove Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:000000c7" CmdPri="04000000" Group="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000133" GroupPri="01000000" Menu="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000082"/>
+					<remove Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000462" CmdPri="00500000" Group="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000722" GroupPri="08000000" Menu="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000082"/>
+					<remove Cmd="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000359" CmdPri="01000000" Group="{D309F791-903F-11D0-9EFC-00A0C911004F}:0000035a" GroupPri="03500000" Menu="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000300"/>
+					<remove Cmd="{E8B06F44-6D01-11D2-AA7D-00C04F990343}:00001387" CmdPri="00100000" Group="{E8B06F42-6D01-11D2-AA7D-00C04F990343}:0000006a" GroupPri="00200000" Menu="{E8B06F42-6D01-11D2-AA7D-00C04F990343}:00000004"/>
+					<modify Cmd="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000359" CmdPri="00500001" Group="{D309F791-903F-11D0-9EFC-00A0C911004F}:0000019f" GroupPri="01000000" Menu="{D309F791-903F-11D0-9EFC-00A0C911004F}:00000300" BeginGroup="false"/>
+				</DefaultCustomizations>
+				<UserCustomizations>
+					<add_group Group="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000203" GroupPri="40000001" Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601"/>
+					<add_toolbar Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601" Name="CS-Script" MenuType="toolbar"/>
+					<modify_toolbar Menu="{9ADF33D0-8AAD-11D0-B606-00A0C922E851}:0000000e" Visibility="auto" FullScreen="hide" Dock="top" Row="2" DockRectangle="308,49,717,75"/>
+					<modify_toolbar Menu="{C9DD4A58-47FB-11D2-83E7-00C04F9902C1}:00000421" Visibility="show" FullScreen="hide" Dock="top" Row="2" DockRectangle="0,49,308,75"/>
+					<modify_toolbar Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601" Name="CS-Script" Visibility="show" FullScreen="hide" Floating="true" Dock="top" Row="4" FloatRectangle="658,292,908,338" DockRectangle="649,49,916,75"/>
+					<add Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000102" CmdPri="07008001" Group="{C9DD4A58-47FB-11D2-83E7-00C04F9902C1}:00000011" GroupPri="03000000" Menu="{C9DD4A58-47FB-11D2-83E7-00C04F9902C1}:00000421"/>
+					<add Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000276" CmdPri="40000001" Group="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000203" GroupPri="40000001" Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601"/>
+					<add Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000277" CmdPri="40008001" Group="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000203" GroupPri="40000001" Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601"/>
+					<add Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000278" CmdPri="40010001" Group="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000203" GroupPri="40000001" Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601"/>
+					<modify Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000276" CmdPri="40000001" Group="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000203" GroupPri="40000001" Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601" Name="Refresh project" CustomIcon="CCgEAAAoAAAAEAAQAAEgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAACgAAAAQABAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A//8AAP//AAD//wAA+DcAAPAXAADjhwAA58cAAP+HAADh/wAA4+cAAOHHAADoDwAA7B8AAP//AAD//wAA//8AAA" Style="3"/>
+					<modify Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000277" CmdPri="40008001" Group="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000203" GroupPri="40000001" Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601" Name="Precompiler" Icon="{D309F794-903F-11D0-9EFC-00A0C911004F}:00000860" Style="3"/>
+					<modify Cmd="{5EFC7975-14BC-11CF-9B2B-00AA00573819}:00000278" CmdPri="40010001" Group="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000203" GroupPri="40000001" Menu="{F33C911F-81BB-4F43-8B60-5BA39E9A94A1}:00000601" Name="Explore" CustomIcon="COgAAAAoAAAAEAAQAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAgICAAP///wAAAAAAgAAAAIAAgACAgAAAgICAAMDAwAAAAP8AAP8AAAD//wD/AAAA/wD/AP//AAD///8AERERERERERESMzoSMyMyMRIiIhIiIiIhEjMyEjMjMjESIiISIiIiIRIzMhIzIzIxEiIiEiIiIiESMzISMyMyMRIiIhIiIiIhEjMyEjMjMjESIiISIiIiIRERERERERERERIiIiIiIiEREREREREREQAAAAAAAAAAAAAAAAAAAABwAAAAKAAAABAAEAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" Style="3"/>
+				</UserCustomizations>
+			</CommandBars>
+			<PropertyValue name="ShowLargeButtons">false</PropertyValue>
+			<PropertyValue name="ShowScreenTips">true</PropertyValue>
+			<PropertyValue name="ShowScreenTipShortcutKeys">true</PropertyValue>
+		</Category>
+		<Category name="Environment_ExternalTools" Category="{E8FAE9E8-FBA2-4474-B134-AB0FFCFB291D}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_ExternalTools" PackageName="Visual Studio Environment Package">
+			<PropertyValue name="CS-Script Refresh.Command">csws.exe</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.Arguments">refreshVSProj "$(ProjectDir)\$(ProjectFileName)"</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.InitialDirectory"/>
+			<PropertyValue name="CS-Script Refresh.SourceKeyName"/>
+			<PropertyValue name="CS-Script Refresh.UseOutputWindow">false</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.PromptForArguments">false</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.CloseOnExit">false</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.IsGUIapp">true</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.SaveAllDocs">true</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.UseTaskList">false</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.Unicode">false</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+			<PropertyValue name="CS-Script Refresh.NameID">0</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.Command">csws.exe</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.Arguments">debug2005Precompiler "$(ProjectFileName)"</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.InitialDirectory"/>
+			<PropertyValue name="CS-Script Run precompiler.SourceKeyName"/>
+			<PropertyValue name="CS-Script Run precompiler.UseOutputWindow">false</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.PromptForArguments">false</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.CloseOnExit">false</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.IsGUIapp">true</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.SaveAllDocs">true</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.UseTaskList">false</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.Unicode">false</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+			<PropertyValue name="CS-Script Run precompiler.NameID">0</PropertyValue>
+			<PropertyValue name="CS-Script Explore.Command">explorer.exe</PropertyValue>
+			<PropertyValue name="CS-Script Explore.Arguments"> /e, /select, $(ItemPath)</PropertyValue>
+			<PropertyValue name="CS-Script Explore.InitialDirectory"/>
+			<PropertyValue name="CS-Script Explore.SourceKeyName"/>
+			<PropertyValue name="CS-Script Explore.UseOutputWindow">false</PropertyValue>
+			<PropertyValue name="CS-Script Explore.PromptForArguments">false</PropertyValue>
+			<PropertyValue name="CS-Script Explore.CloseOnExit">false</PropertyValue>
+			<PropertyValue name="CS-Script Explore.IsGUIapp">true</PropertyValue>
+			<PropertyValue name="CS-Script Explore.SaveAllDocs">true</PropertyValue>
+			<PropertyValue name="CS-Script Explore.UseTaskList">false</PropertyValue>
+			<PropertyValue name="CS-Script Explore.Unicode">false</PropertyValue>
+			<PropertyValue name="CS-Script Explore.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+			<PropertyValue name="CS-Script Explore.NameID">0</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.Command">%vsspv_vs_install_directory%\Common7\Tools\guidgen.exe</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.Arguments"/>
+			<PropertyValue name="Create &amp;GUID.InitialDirectory">%vsspv_vs_install_directory%\Common7\Tools\</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.SourceKeyName">Create GUID</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.UseOutputWindow">false</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.PromptForArguments">false</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.CloseOnExit">false</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.IsGUIapp">true</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.SaveAllDocs">true</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.UseTaskList">false</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.Unicode">false</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.Package">{DA9FB551-C724-11D0-AE1F-00A0C90FFFC3}</PropertyValue>
+			<PropertyValue name="Create &amp;GUID.NameID">14453</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.Command">%vsspv_vs_install_directory%\Application\PreEmptive Solutions\Dotfuscator Community Edition\Dotfuscator.exe</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.Arguments"/>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.InitialDirectory">$(TargetDir)</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.SourceKeyName">Dot&amp;fuscator Community Edition</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.UseOutputWindow">true</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.PromptForArguments">false</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.CloseOnExit">false</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.IsGUIapp">false</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.SaveAllDocs">true</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.UseTaskList">false</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.Unicode">false</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+			<PropertyValue name="Dot&amp;fuscator Community Edition.NameID">0</PropertyValue>
+			<PropertyValue name="ToolNames">CS-Script Refresh, CS-Script Run precompiler, CS-Script Explore, Create &amp;GUID, Dot&amp;fuscator Community Edition</PropertyValue>
+		</Category>
+	</Category>
+</UserSettings>

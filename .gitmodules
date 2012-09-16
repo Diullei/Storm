@@ -1,0 +1,3 @@
+[submodule "Esprima.NET"]
+	path = Esprima.NET
+	url = git://github.com/Diullei/Esprima.NET.git

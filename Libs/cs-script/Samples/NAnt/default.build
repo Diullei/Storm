@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<project name="CSScriptTest" default="build" basedir=".">
+
+	<loadtasks assembly="CSScript.Tasks.dll"/>
+
+	<property name="strData" value="Hi there"/>
+	
+	<target name="file">
+		<CSScript file="script.cs" />
+    </target>
+	
+	<target name="file.error">
+		<CSScript file="scriptWithError.cs" />
+    </target>
+	
+	<target name="file.data.io">
+		<CSScript file="script.data.io.cs" />
+		<echo message="Data returned by the task: ${data.out.value}" />
+    </target>
+	
+	<target name="method">
+		<CSScript method="true" >
+		<![CDATA[
+		  using System.Windows.Forms;
+		  
+		  public static void Task()
+          {
+               MsgBox("Hello World (from method1)!");
+          }
+          
+		  static void MsgBox(string message)
+          {
+               MessageBox.Show(message);
+          }
+		]]>
+		</CSScript>
+    </target>
+	
+	<target name="method2" >
+		<CSScript method="true" >
+		<![CDATA[
+		  using System.Windows.Forms;
+		  public static void Task()
+          {
+               MessageBox.Show("Hello World (from method2)!");
+          }
+		]]>
+		</CSScript>
+    </target>
+	
+	<target name="method.data.embedded">
+		<CSScript method="true" >
+		<![CDATA[
+		  public static void Task()
+          {
+               Console.WriteLine("${strData}");
+          }
+		]]>
+		</CSScript>
+    </target>
+	
+	<target name="method.data.in">
+		<CSScript method="true" >
+		<![CDATA[
+		  public static void Task()
+          {
+              Console.WriteLine(NAntRuntime.Project.Properties["strData"]);
+          }
+		]]>
+		</CSScript>
+    </target>
+	
+<target name="debug">
+	<CSScript method="true" >
+	<![CDATA[
+	  public static void Task()
+	  {
+		  System.Diagnostics.Debug.Assert(false);
+		  Console.WriteLine(NAntRuntime.Project.Properties["strData"]);
+	  }
+	]]>
+	</CSScript>
+</target>
+	
+	<target name="method.debug">
+		<CSScript method="true" >
+		<![CDATA[
+		  public static void Task()
+          {
+		      System.Diagnostics.Debug.Assert(false);
+          }
+		]]>
+		</CSScript>
+    </target>
+	
+	<target name="method.data.out">
+		<CSScript method="true" >
+		<![CDATA[
+		  public static void Task()
+          {
+		      NAntRuntime.Project.Properties["data.out.value"] = "test data";
+          }
+		]]>
+		</CSScript>
+		<echo message="Date returned by the task: ${data.out.value}" />
+    </target>
+	
+	<target name="error" >
+		<CSScript method="true">
+		<![CDATA[
+		  public static void Task()
+          {
+		      throw new Exception("The task has raised an error.");
+          }
+		]]>
+		</CSScript>
+    </target>
+	
+	<target name="code">
+		<CSScript>
+		<![CDATA[
+		  using System;
+		  public class Script
+		  {
+			  public static void Main()
+			  {
+			       SayHello("Hello World (from code)");
+              }			  
+			  public static void SayHello(string greeting)
+			  {
+				   Console.WriteLine(greeting);
+			  }
+		  }
+		]]>
+		</CSScript>
+    </target>
+
+	<target name="code.method">
+		<CSScript entryPoint="Task" >
+		<![CDATA[
+		  using System;
+		  public class Script
+		  {
+			  public static void Main()
+			  {
+			       SayHello("Hello World (from code)");
+              }
+			  
+			  public static void Task()
+			  {
+			       SayHello("Hello World (from 'Task' method)");
+              }			  
+			  
+			  public static void SayHello(string greeting)
+			  {
+				   Console.WriteLine(greeting);
+			  }
+		  }
+		]]>
+		</CSScript>
+    </target>
+
+</project>
+
