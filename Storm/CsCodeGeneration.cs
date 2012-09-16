@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +10,29 @@ namespace Storm
     public class CsCodeGeneration : ICodeGeneration
     {
         private readonly bool _debugMode;
+        private readonly Context _context;
 
-        public CsCodeGeneration(bool debugMode)
+        public CsCodeGeneration(bool debugMode, Context context)
         {
             _debugMode = debugMode;
+            _context = context;
         }
 
         protected bool DeclarationContext { get; set; }
         protected bool ReturnContext { get; set; }
 
         private List<string> _declaredVar = new List<string>();
+
+        private string TypeAsString(Type type)
+        {
+            var genericArgs = string.Join(",", type.GenericTypeArguments.ToList().Select(TypeAsString));
+            return string.Format(
+                "{0}{1}", 
+                type.FullName.Split('`')[0], 
+                !string.IsNullOrWhiteSpace(genericArgs) 
+                    ? "<" + genericArgs + ">"
+                    : "");
+        }
 
         public string Generate(ISyntax syntax)
         {
@@ -30,10 +44,23 @@ namespace Storm
 
                 case "Program":
                     var program = (syntax as Program);
+                    sb.Append("using System;");
                     sb.Append("using Storm;");
                     sb.Append("public class C0 : JsObject");
                     sb.Append("{");
-                    sb.Append("public C0(IDebugger debugger):base(debugger){}");
+
+                    _context.Actions.ToList().ForEach(a => sb.Append(string.Format("private {0} {1};", TypeAsString(a.Value.GetType()), a.Key)));
+
+                    sb.Append("public C0(");
+
+                    _context.Actions.ToList().ForEach(a => sb.Append(string.Format("{0} {1}, ", TypeAsString(a.Value.GetType()), a.Key)));
+
+                    sb.Append("IDebugger debugger):base(debugger){");
+
+                    _context.Actions.ToList().ForEach(a => sb.Append(string.Format("this.{0} = {0};", a.Key)));
+
+                    sb.Append("}");
+
                     this.DeclarationContext = true;
                     // colocar esceção para tipo não suportado
                     program.Body.ToList().Where(inst => inst is VariableDeclaration).ToList().ForEach(b => sb.Append(b.ToString()));
@@ -60,7 +87,7 @@ namespace Storm
 
                     if (this.ReturnContext)
                     {
-                        sb.Append("this.private_" + variableDeclaration.Declarations.Last().ToString());
+                        sb.Append(variableDeclaration.Declarations.Last().ToString());
                     }
                     else
                     {
@@ -73,7 +100,7 @@ namespace Storm
                             {
                                 if (!_declaredVar.Contains(d.ToString()))
                                 {
-                                    sb.Append("private object private_");
+                                    sb.Append("private object ");
                                     sb.Append(d.ToString());
                                     sb.Append("{get;set;}");
                                     _declaredVar.Add(d.ToString());
@@ -81,7 +108,6 @@ namespace Storm
                             }
                             else
                             {
-                                sb.Append("this.private_");
                                 sb.Append(d.ToString());
                                 sb.Append(";");
                             }
@@ -166,7 +192,7 @@ namespace Storm
 
                 case "AssignmentExpression":
                     var assign = (syntax as AssignmentExpression);
-                    sb.Append("this.private_" + assign.Left.ToString());
+                    sb.Append(assign.Left.ToString());
                     sb.Append(string.Format(" {0} ", assign.Operator));
                     sb.Append(assign.Right.ToString());
 
@@ -188,6 +214,17 @@ namespace Storm
 
                 #endregion
 
+                #region "CallExpression"
+
+                case "CallExpression":
+                    var call = (syntax as CallExpression);
+                    sb.Append(call.Callee.ToString());
+                    sb.Append("(");
+                    call.Arguments.ToList().ForEach(a => sb.Append(a.ToString()));
+                    sb.Append(")");
+                    break;
+
+                #endregion
             }
 
             return sb.ToString();

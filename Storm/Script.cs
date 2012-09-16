@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using CSScriptLibrary;
 using Esprima.NET.Ex;
@@ -14,12 +16,12 @@ namespace Storm
             _context = context;
         }
 
-        private static dynamic Parse(string source, bool debugMode)
+        private static dynamic Parse(string source, bool debugMode, Context context)
         {
             dynamic tree = null;
             try
             {
-                tree = new Esprima.NET.Esprima().Parse(new CsCodeGeneration(debugMode), source);
+                tree = new Esprima.NET.Esprima().Parse(new CsCodeGeneration(debugMode, context), source);
             }
             catch (Esprima.NET.Esprima.Error ex)
             {
@@ -43,12 +45,17 @@ namespace Storm
 
         public static Script Compile(Code code, Context context, string source, IDebugger debugger)
         {
-            var csCode = GetCsCode(code, Parse(source, debugger != null));
+            var csCode = GetCsCode(code, Parse(source, debugger != null, context));
             Assembly asm = CSScript.LoadCode(csCode);
             var type = asm.GetType("C0");
 
             if (context.Scope.Obj == null)
-                context.Scope.Obj = (JsObject)Activator.CreateInstance(type, debugger);
+            {
+                var args = new List<object>();
+                context.Actions.ToList().ForEach(a => args.Add(a.Value));
+                args.Add(debugger);
+                context.Scope.Obj = (JsObject)Activator.CreateInstance(type, args.ToArray());
+            }
 
             return new Script(context);
         }

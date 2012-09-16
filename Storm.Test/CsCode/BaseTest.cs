@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Storm.Test.CsCode
 {
     [TestClass]
-    public class BaseTest
+    public abstract class BaseTest
     {
         protected Context Context { get; set; }
         protected Code CodeGenerator { get; set; }
@@ -14,6 +14,11 @@ namespace Storm.Test.CsCode
         {
             Context = new Context(new Scope());
             CodeGenerator = new Code();
+            CustomInitialize();
+        }
+
+        public virtual void CustomInitialize()
+        {
         }
 
         protected object Run(string source)

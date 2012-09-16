@@ -7,17 +7,18 @@ namespace Storm.Test.CsCode
     {
         protected string Code = "var x = 100; x = 3 + 5";
         protected string Result =
-            "using Storm;"
+              "using System;"
+            + "using Storm;"
             + "public class C0 : JsObject"
             + "{"
             + "public C0(IDebugger debugger):base(debugger){}"
 
-            + "private object private_x{get;set;}"
+            + "private object x{get;set;}"
 
             + "public override object Exec()"
             + "{"
-            + "this.private_x = 100;"
-            + "this.private_x = (3 + 5);"
+            + "x = 100;"
+            + "x = (3 + 5);"
             + "return JsObject.Undefined;"
             + "}"
             + "}";
