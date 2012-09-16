@@ -17,7 +17,7 @@ namespace Storm.Test.CsCode
                 + "public override object Exec()"
                 + "{"
                     + "this.private_x = \"string\";"
-                    + "return this.private_x;"
+                    + "return JsObject.Undefined;"
                 + "}"
             + "}";
 

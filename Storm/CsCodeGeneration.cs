@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Esprima.NET;
@@ -16,6 +17,8 @@ namespace Storm
 
         protected bool DeclarationContext { get; set; }
         protected bool ReturnContext { get; set; }
+
+        private List<string> _declaredVar = new List<string>();
 
         public string Generate(ISyntax syntax)
         {
@@ -40,7 +43,7 @@ namespace Storm
                     sb.Append("{");
                     program.Body.ForEach(b => sb.Append(b.ToString()));
                     this.ReturnContext = true;
-                    sb.Append("return " + program.Body.ToList().Last().ToString() + ";");
+                    sb.Append("return JsObject.Undefined;");
                     this.ReturnContext = true;
                     sb.Append("}");
 
@@ -67,16 +70,21 @@ namespace Storm
                                 sb.Append(string.Format("Debugger.BreakPoint({0}, {1}, {2}, {3}, {4}, {5});", d.Range.Start, d.Range.End, d.Loc.Start.Line, d.Loc.Start.Column, d.Loc.End.Line, d.Loc.End.Column));
 
                             if (this.DeclarationContext)
-                                sb.Append("private object private_");
+                            {
+                                if (!_declaredVar.Contains(d.ToString()))
+                                {
+                                    sb.Append("private object private_");
+                                    sb.Append(d.ToString());
+                                    sb.Append("{get;set;}");
+                                    _declaredVar.Add(d.ToString());
+                                }
+                            }
                             else
+                            {
                                 sb.Append("this.private_");
-
-                            sb.Append(d.ToString());
-
-                            if (this.DeclarationContext)
-                                sb.Append("{get;set;}");
-                            else
+                                sb.Append(d.ToString());
                                 sb.Append(";");
+                            }
 
                             if (_debugMode && !this.DeclarationContext)
                                 sb.Append("Debugger.BreakPoint(this);");
@@ -136,6 +144,36 @@ namespace Storm
                     break;
 
                     #endregion
+
+                #region "ExpressionStatement"
+
+                case "ExpressionStatement":
+                    var expression = (syntax as ExpressionStatement);
+                    if (_debugMode && !this.DeclarationContext)
+                        sb.Append(string.Format("Debugger.BreakPoint({0}, {1}, {2}, {3}, {4}, {5});", expression.Range.Start, expression.Range.End, expression.Loc.Start.Line, expression.Loc.Start.Column, expression.Loc.End.Line, expression.Loc.End.Column));
+
+                    sb.Append(expression.Expression.ToString());
+                    sb.Append(";");
+
+                    if (_debugMode && !this.DeclarationContext)
+                        sb.Append("Debugger.BreakPoint(this);");
+
+                    break;
+
+                #endregion
+
+                #region "AssignmentExpression"
+
+                case "AssignmentExpression":
+                    var assign = (syntax as AssignmentExpression);
+                    sb.Append("this.private_" + assign.Left.ToString());
+                    sb.Append(" = ");
+                    sb.Append(assign.Right.ToString());
+
+                    break;
+
+                #endregion
+
             }
 
             return sb.ToString();
