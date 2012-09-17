@@ -16,7 +16,9 @@ namespace Storm.Test.CsCode
 
                 + "private System.Action<System.Object> print2;"
 
-                + "public C0(System.Action print, System.Action<System.Object> print2, IDebugger debugger):base(debugger){this.print = print;this.print2 = print2;}"
+                + "private System.Action<System.String> eval;"
+
+                + "public C0(System.Action print, System.Action<System.Object> print2, System.Action<System.String> eval, IDebugger debugger):base(debugger){this.print = print;this.print2 = print2;this.eval = eval;}"
 
                 + "private object x{get;set;}"
 
@@ -33,7 +35,7 @@ namespace Storm.Test.CsCode
         public override void CustomInitialize()
         {
             Context.SetFunction("print", new Action(Console.WriteLine));
-            Context.SetFunction<object>("print2", Console.WriteLine);
+            Context.SetFunction<object>("print2", (val)=> Assert.AreEqual(8, val));
         }
 
         [TestMethod]

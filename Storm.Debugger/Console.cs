@@ -11,6 +11,7 @@ namespace Storm.Debugger
     {
         private static CodeRunner _runner;
         private static bool _stop;
+        private string _source;
 
         public Console()
         {
@@ -58,7 +59,7 @@ namespace Storm.Debugger
             {
                 this.Invoke(new MethodInvoker(() =>
                 {
-                    debugControl.Code = txtSource.Text;
+                    debugControl.Code = _source;
                     debugControl.BreakPoint(start, end, lineStart, colStart, lineEnd, colEnd);
                     debugControl.Instruction = txtSource.Text.Substring(start, (end - start));
                 }));
@@ -80,6 +81,11 @@ namespace Storm.Debugger
                                                       debugControl.InspectObject(instance);
                                                   }));
             }
+        }
+
+        public void SetSourceCode(string source)
+        {
+            _source = source;
         }
 
         private void btnNext_Click(object sender, EventArgs e)

@@ -43,19 +43,62 @@ namespace Storm
             return Compile(code, context, source, null);
         }
 
+        private static void CloneProperties(Context context, object original, object target)
+        {
+            if (original != null)
+            {
+                context.DeclaredVarNames.ForEach(v =>
+                {
+                    var originalProperty = original.GetType().GetProperty(v, BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
+                    var targetProperty = target.GetType().GetProperty(v, BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
+                    if (targetProperty != null)
+                        targetProperty.SetValue(target, originalProperty.GetValue(original));
+                });
+            }
+        }
+
+        private static Dictionary<string, JsObject> _cache = new Dictionary<string, JsObject>(); 
+
         public static Script Compile(Code code, Context context, string source, IDebugger debugger)
         {
-            var csCode = GetCsCode(code, Parse(source, debugger != null, context));
-            Assembly asm = CSScript.LoadCode(csCode);
-            var type = asm.GetType("C0");
+            debugger.SetSourceCode(source);
 
-            if (context.Scope.Obj == null)
+            context.SetFunction<string>("eval", (c) =>
+                                                    {
+                                                        var bkCode = source;
+                                                        var scope = context.Scope;
+                                                        context.Scope = new Scope {Obj = scope.Obj};
+                                                        Compile(code, context, c, debugger).Run();
+
+                                                        CloneProperties(context, context.Scope.Obj, scope.Obj);
+
+                                                        context.Scope = scope;
+
+                                                        debugger.SetSourceCode(bkCode);
+                                                    });
+
+            JsObject instance = null;
+
+            if (!_cache.ContainsKey(source))
             {
+                var csCode = GetCsCode(code, Parse(source, debugger != null, context));
+                Assembly asm = CSScript.LoadCode(csCode);
+                var type = asm.GetType("C0");
                 var args = new List<object>();
                 context.Actions.ToList().ForEach(a => args.Add(a.Value));
                 args.Add(debugger);
-                context.Scope.Obj = (JsObject)Activator.CreateInstance(type, args.ToArray());
+                instance = (JsObject) Activator.CreateInstance(type, args.ToArray());
+
+                _cache[source] = instance;
             }
+            else
+            {
+                instance = _cache[source];
+            }
+
+            CloneProperties(context, context.Scope.Obj, instance);
+
+            context.Scope.Obj = instance;
 
             return new Script(context);
         }

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICSharpCode.TextEditor.Document;
@@ -27,7 +28,10 @@ namespace Storm.Debugger
         public string Code
         {
             get { return txtDebug.Text; }
-            set { txtDebug.Text = value; }
+            set
+            {
+                txtDebug.Text = value;
+            }
         }
 
         public void InspectObject(object obj)

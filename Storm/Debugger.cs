@@ -11,5 +11,9 @@ namespace Storm
         public void BreakPoint(JsObject instance)
         {
         }
+
+        public void SetSourceCode(string source)
+        {
+        }
     }
 }

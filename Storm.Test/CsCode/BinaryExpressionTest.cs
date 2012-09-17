@@ -11,7 +11,8 @@ namespace Storm.Test.CsCode
             + "using Storm;"
             + "public class C0 : JsObject"
             + "{"
-            + "public C0(IDebugger debugger):base(debugger){}"
+                + "private System.Action<System.String> eval;"
+            + "public C0(System.Action<System.String> eval, IDebugger debugger):base(debugger){this.eval = eval;}"
 
             + "private object x{get;set;}"
 

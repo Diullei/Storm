@@ -21,8 +21,6 @@ namespace Storm
         protected bool DeclarationContext { get; set; }
         protected bool ReturnContext { get; set; }
 
-        private List<string> _declaredVar = new List<string>();
-
         private string TypeAsString(Type type)
         {
             var genericArgs = string.Join(",", type.GenericTypeArguments.ToList().Select(TypeAsString));
@@ -48,6 +46,8 @@ namespace Storm
                     sb.Append("using Storm;");
                     sb.Append("public class C0 : JsObject");
                     sb.Append("{");
+
+                    _context.DeclaredVarNames.ToList().ForEach(p => sb.Append(string.Format("private object {0}{{get;set;}}", p)));
 
                     _context.Actions.ToList().ForEach(a => sb.Append(string.Format("private {0} {1};", TypeAsString(a.Value.GetType()), a.Key)));
 
@@ -98,12 +98,12 @@ namespace Storm
 
                             if (this.DeclarationContext)
                             {
-                                if (!_declaredVar.Contains(d.ToString()))
+                                if (!_context.DeclaredVarNames.Contains(d.ToString()))
                                 {
                                     sb.Append("private object ");
                                     sb.Append(d.ToString());
                                     sb.Append("{get;set;}");
-                                    _declaredVar.Add(d.ToString());
+                                    _context.DeclaredVarNames.Add(d.ToString());
                                 }
                             }
                             else
