@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.Dynamic;
 
 namespace Storm
 {
-    public abstract class JsObject
+    public abstract class JsObject //: DynamicObject
     {
         protected JsObject(IDebugger debugger)
         {

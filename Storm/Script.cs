@@ -61,7 +61,7 @@ namespace Storm
 
         public static Script Compile(Code code, Context context, string source, IDebugger debugger)
         {
-            debugger.SetSourceCode(source);
+            if (debugger != null) debugger.SetSourceCode(source);
 
             context.SetFunction<string>("eval", (c) =>
                                                     {
@@ -74,7 +74,7 @@ namespace Storm
 
                                                         context.Scope = scope;
 
-                                                        debugger.SetSourceCode(bkCode);
+                                                        if (debugger != null) debugger.SetSourceCode(bkCode);
                                                     });
 
             JsObject instance = null;
