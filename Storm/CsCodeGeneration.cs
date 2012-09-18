@@ -218,8 +218,16 @@ namespace Storm
                     var binary = (syntax as BinaryExpression);
                     sb.Append("(");
                     sb.Append(binary.Left.ToString());
-                    sb.Append(string.Format(" {0} ", binary.Operator));
+
+                    if (binary.Operator == "!==")
+                        sb.Append(".ToString()");
+
+                    sb.Append(string.Format(" {0} ", binary.Operator == "!==" ? "!=" : binary.Operator));
                     sb.Append(binary.Right.ToString());
+
+                    if (binary.Operator == "!==")
+                        sb.Append(".ToString()");
+
                     sb.Append(")");
 
                     break;
@@ -238,7 +246,7 @@ namespace Storm
 
                     #endregion
 
-                #region "IfStatement"
+                    #region "IfStatement"
 
                 case "IfStatement":
                     var @if = (syntax as IfStatement);
@@ -247,13 +255,23 @@ namespace Storm
                     sb.Append(@if.Consequent.ToString());
                     sb.Append("}");
 
-                    if(@if.Alternate != null)
+                    if (@if.Alternate != null)
                     {
                         sb.Append("else");
                         sb.Append("{");
                         sb.Append(@if.Alternate.ToString());
                         sb.Append("}");
                     }
+
+                    break;
+
+                    #endregion
+
+                    #region "BlockStatement"
+
+                case "BlockStatement":
+                    var block = (syntax as BlockStatement);
+                    block.Body.ForEach(b => sb.Append(b.ToString()));
 
                     break;
 
