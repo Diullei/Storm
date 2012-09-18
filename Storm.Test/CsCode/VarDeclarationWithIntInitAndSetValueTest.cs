@@ -11,17 +11,16 @@ namespace Storm.Test.CsCode
             + "using Storm;"
             + "public class C0 : JsObject"
             + "{"
-                + "private System.Action<System.String> eval;"
+                + "private System.Func<System.String,System.Object> eval;"
 
-                + "public C0(System.Action<System.String> eval, IDebugger debugger):base(debugger){this.eval = eval;}"
+                + "public C0(System.Func<System.String,System.Object> eval, IDebugger debugger):base(debugger){this.eval = eval;}"
 
                 + "private object x{get;set;}"
 
                 + "public override object Exec()"
                 + "{"
                     + "((dynamic)this).x = 100;"
-                    + "((dynamic)this).x = 3;"
-                    + "return JsObject.Undefined;"
+                    + "return ((dynamic)this).x = 3;"
                 + "}"
             + "}";
 

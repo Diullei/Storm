@@ -72,9 +72,53 @@ namespace Storm
 
                     sb.Append("public override object Exec()");
                     sb.Append("{");
-                    program.Body.ForEach(b => sb.Append(b.ToString()));
+                    var ret = false;
+                    var index = 0;
+                    program.Body.ForEach(b =>
+                                             {
+                                                 if (index == program.Body.Count - 1)
+                                                 {
+                                                     if (b.Type == "ExpressionStatement")
+                                                     {
+                                                         if (b.Expression.Type == "CallExpression")
+                                                         {
+                                                             if (_context.Actions.ContainsKey(b.Expression.Callee.Name))
+                                                             {
+                                                                 if (
+                                                                     TypeAsString(
+                                                                         _context.Actions[b.Expression.Callee.Name].
+                                                                             GetType()).
+                                                                         StartsWith("System.Func"))
+                                                                 {
+                                                                     sb.Append("return ");
+                                                                     ret = true;
+                                                                 }
+                                                             }
+                                                             else throw new Exception();
+                                                         }
+                                                         else if (b.Type == "Literal"
+                                                                  || b.Type == "Identifier"
+                                                                  || b.Type == "ExpressionStatement")
+                                                         {
+                                                             sb.Append("return ");
+                                                             ret = true;
+                                                         }
+                                                     }
+                                                     else if (b.Type == "Literal"
+                                                              || b.Type == "Identifier"
+                                                              || b.Type == "ExpressionStatement")
+                                                     {
+                                                         sb.Append("return ");
+                                                         ret = true;
+                                                     }
+                                                 }
+
+                                                 sb.Append(b.ToString());
+                                                 index++;
+                                             });
                     this.ReturnContext = true;
-                    sb.Append("return JsObject.Undefined;");
+                    if (!ret)
+                        sb.Append("return JsObject.Undefined;");
                     this.ReturnContext = true;
                     sb.Append("}");
 

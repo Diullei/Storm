@@ -6,7 +6,7 @@ namespace Storm.Test.CsCode
     [TestClass]
     public class CallExpressionTest : BaseTest
     {
-        protected string Code = "var x = 100; x = 3 + 5; print(); print2(x);";
+        protected string Code = "var x = 100; x = 3 + 5; print(); print2(x); print3(fn(x))";
         protected string Result =
               "using System;"
             + "using Storm;"
@@ -16,9 +16,13 @@ namespace Storm.Test.CsCode
 
                 + "private System.Action<System.Object> print2;"
 
-                + "private System.Action<System.String> eval;"
+                + "private System.Func<System.Object,System.Object> fn;"
 
-                + "public C0(System.Action print, System.Action<System.Object> print2, System.Action<System.String> eval, IDebugger debugger):base(debugger){this.print = print;this.print2 = print2;this.eval = eval;}"
+                + "private System.Action<System.Object> print3;"
+
+                + "private System.Func<System.String,System.Object> eval;"
+
+                + "public C0(System.Action print, System.Action<System.Object> print2, System.Func<System.Object,System.Object> fn, System.Action<System.Object> print3, System.Func<System.String,System.Object> eval, IDebugger debugger):base(debugger){this.print = print;this.print2 = print2;this.fn = fn;this.print3 = print3;this.eval = eval;}"
 
                 + "private object x{get;set;}"
 
@@ -28,6 +32,7 @@ namespace Storm.Test.CsCode
                     + "((dynamic)this).x = (3 + 5);"
                     + "((dynamic)this).print();"
                     + "((dynamic)this).print2(((dynamic)this).x);"
+                    + "((dynamic)this).print3(((dynamic)this).fn(((dynamic)this).x));"
                     + "return JsObject.Undefined;"
                 + "}"
             + "}";
@@ -36,6 +41,8 @@ namespace Storm.Test.CsCode
         {
             Context.SetFunction("print", new Action(Console.WriteLine));
             Context.SetFunction<object>("print2", (val)=> Assert.AreEqual(8, val));
+            Context.SetFunction("fn", new Func<object, object>(val => val));
+            Context.SetFunction<object>("print3", (val) => Assert.AreEqual(8, val));
         }
 
         [TestMethod]

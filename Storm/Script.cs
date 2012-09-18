@@ -71,19 +71,21 @@ namespace Storm
         {
             if (debugger != null) debugger.SetSourceCode(source);
 
-            context.SetFunction<string>("eval", (c) =>
-                                                    {
-                                                        var bkCode = source;
-                                                        var scope = context.Scope;
-                                                        context.Scope = new Scope {Obj = scope.Obj};
-                                                        Compile(code, context, c, debugger).Run();
+            context.SetFunction("eval", (string c) =>
+                                            {
+                                                var bkCode = source;
+                                                var scope = context.Scope;
+                                                context.Scope = new Scope {Obj = scope.Obj};
+                                                var result = Compile(code, context, c, debugger).Run();
 
-                                                        CloneProperties(context, context.Scope.Obj, scope.Obj);
+                                                CloneProperties(context, context.Scope.Obj, scope.Obj);
 
-                                                        context.Scope = scope;
+                                                context.Scope = scope;
 
-                                                        if (debugger != null) debugger.SetSourceCode(bkCode);
-                                                    });
+                                                if (debugger != null) debugger.SetSourceCode(bkCode);
+
+                                                return result;
+                                            });
 
             JsObject instance = null;
 
