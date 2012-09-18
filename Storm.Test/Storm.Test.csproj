@@ -56,62 +56,64 @@
     <Compile Include="CsCode\CastObjectTest.cs" />
     <Compile Include="CsCode\EvalTest.cs" />
     <Compile Include="CsCode\IfStatementTest.cs" />
+    <Compile Include="CsCode\SputnikV1TestBase.cs" />
     <Compile Include="CsCode\VarDeclarationWithIntInitAndSetValueTest.cs" />
     <Compile Include="CsCode\VarDeclarationWithoutInitTest.cs" />
     <Compile Include="CsCode\VarDeclarationWithIntInitTest.cs" />
     <Compile Include="CsCode\VarDeclarationWithStrInitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\_7_2_White_Space.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SputnikV1\AUTHORS" />
     <None Include="SputnikV1\LICENSE" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.1_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.1_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.2_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.2_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.3_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.3_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.4_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.4_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.5_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.5_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.1_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.1_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.2_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.2_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.3_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.3_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.4_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.4_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.5_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.5_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.1_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.1_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.2_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.2_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.3_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.3_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.4_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.4_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.5_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.5_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.1_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.1_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.2_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.2_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.3_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.3_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.4_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.4_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.5_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.5_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T3.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T4.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T5.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.1_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.1_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.2_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.2_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.3_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.3_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.4_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.4_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.5_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A1.5_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.1_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.1_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.2_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.2_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.3_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.3_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.4_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.4_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.5_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A2.5_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.1_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.1_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.2_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.2_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.3_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.3_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.4_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.4_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.5_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A3.5_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.1_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.1_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.2_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.2_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.3_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.3_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.4_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.4_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.5_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A4.5_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T3.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T4.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\S7.2_A5_T5.js" />
     <Content Include="SputnikV1\07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A1.1_T1.js" />
     <Content Include="SputnikV1\07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A1.1_T2.js" />
     <Content Include="SputnikV1\07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A1.2_T1.js" />
@@ -3463,6 +3465,10 @@
     <Folder Include="SputnikV1\15_Native_ECMA_Script_Objects\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.7_Object.prototype.propertyIsEnumerable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Esprima.NET\Esprima.NET\Esprima.NET.csproj">
+      <Project>{B81E6B03-6826-4208-AAB2-AFD191801624}</Project>
+      <Name>Esprima.NET</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Storm\Storm.csproj">
       <Project>{d184d466-55dc-4f9a-93a1-888de424918f}</Project>
       <Name>Storm</Name>

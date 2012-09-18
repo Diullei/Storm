@@ -160,9 +160,9 @@ namespace Storm
                 case "Identifier":
                     var identifier = (syntax as Identifier);
                     if (this.DeclarationContext)
-                        sb.Append(identifier.Name);
+                        sb.Append(identifier.Name.Replace("$", "@"));
                     else
-                        sb.Append("((dynamic)this)." + identifier.Name);
+                        sb.Append("((dynamic)this)." + identifier.Name.Replace("$", "@"));
 
                     break;
 
@@ -173,7 +173,7 @@ namespace Storm
                 case "Literal":
                     var literal = (syntax as Literal);
                     if (literal.IsString) sb.Append("\"");
-                    sb.Append(literal.Value);
+                    sb.Append(literal.Value.Replace("\"", "\\\""));
                     if (literal.IsString) sb.Append("\"");
 
                     break;
