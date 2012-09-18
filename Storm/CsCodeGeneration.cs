@@ -25,9 +25,9 @@ namespace Storm
         {
             var genericArgs = string.Join(",", type.GenericTypeArguments.ToList().Select(TypeAsString));
             return string.Format(
-                "{0}{1}", 
-                type.FullName.Split('`')[0], 
-                !string.IsNullOrWhiteSpace(genericArgs) 
+                "{0}{1}",
+                type.FullName.Split('`')[0],
+                !string.IsNullOrWhiteSpace(genericArgs)
                     ? "<" + genericArgs + ">"
                     : "");
         }
@@ -47,13 +47,16 @@ namespace Storm
                     sb.Append("public class C0 : JsObject");
                     sb.Append("{");
 
-                    _context.DeclaredVarNames.ToList().ForEach(p => sb.Append(string.Format("private object {0}{{get;set;}}", p)));
+                    _context.DeclaredVarNames.ToList().ForEach(
+                        p => sb.Append(string.Format("private object {0}{{get;set;}}", p)));
 
-                    _context.Actions.ToList().ForEach(a => sb.Append(string.Format("private {0} {1};", TypeAsString(a.Value.GetType()), a.Key)));
+                    _context.Actions.ToList().ForEach(
+                        a => sb.Append(string.Format("private {0} {1};", TypeAsString(a.Value.GetType()), a.Key)));
 
                     sb.Append("public C0(");
 
-                    _context.Actions.ToList().ForEach(a => sb.Append(string.Format("{0} {1}, ", TypeAsString(a.Value.GetType()), a.Key)));
+                    _context.Actions.ToList().ForEach(
+                        a => sb.Append(string.Format("{0} {1}, ", TypeAsString(a.Value.GetType()), a.Key)));
 
                     sb.Append("IDebugger debugger):base(debugger){");
 
@@ -63,7 +66,8 @@ namespace Storm
 
                     this.DeclarationContext = true;
                     // colocar esceção para tipo não suportado
-                    program.Body.ToList().Where(inst => inst is VariableDeclaration).ToList().ForEach(b => sb.Append(b.ToString()));
+                    program.Body.ToList().Where(inst => inst is VariableDeclaration).ToList().ForEach(
+                        b => sb.Append(b.ToString()));
                     this.DeclarationContext = false;
 
                     sb.Append("public override object Exec()");
@@ -94,7 +98,9 @@ namespace Storm
                         foreach (var d in variableDeclaration.Declarations)
                         {
                             if (_debugMode && !this.DeclarationContext)
-                                sb.Append(string.Format("Debugger.BreakPoint({0}, {1}, {2}, {3}, {4}, {5});", d.Range.Start, d.Range.End, d.Loc.Start.Line, d.Loc.Start.Column, d.Loc.End.Line, d.Loc.End.Column));
+                                sb.Append(string.Format("Debugger.BreakPoint({0}, {1}, {2}, {3}, {4}, {5});",
+                                                        d.Range.Start, d.Range.End, d.Loc.Start.Line, d.Loc.Start.Column,
+                                                        d.Loc.End.Line, d.Loc.End.Column));
 
                             if (this.DeclarationContext)
                             {
@@ -174,12 +180,15 @@ namespace Storm
 
                     #endregion
 
-                #region "ExpressionStatement"
+                    #region "ExpressionStatement"
 
                 case "ExpressionStatement":
                     var expression = (syntax as ExpressionStatement);
                     if (_debugMode && !this.DeclarationContext)
-                        sb.Append(string.Format("Debugger.BreakPoint({0}, {1}, {2}, {3}, {4}, {5});", expression.Range.Start, expression.Range.End, expression.Loc.Start.Line, expression.Loc.Start.Column, expression.Loc.End.Line, expression.Loc.End.Column));
+                        sb.Append(string.Format("Debugger.BreakPoint({0}, {1}, {2}, {3}, {4}, {5});",
+                                                expression.Range.Start, expression.Range.End, expression.Loc.Start.Line,
+                                                expression.Loc.Start.Column, expression.Loc.End.Line,
+                                                expression.Loc.End.Column));
 
                     sb.Append(expression.Expression.ToString());
                     sb.Append(";");
@@ -189,9 +198,9 @@ namespace Storm
 
                     break;
 
-                #endregion
+                    #endregion
 
-                #region "AssignmentExpression"
+                    #region "AssignmentExpression"
 
                 case "AssignmentExpression":
                     var assign = (syntax as AssignmentExpression);
@@ -201,9 +210,9 @@ namespace Storm
 
                     break;
 
-                #endregion
+                    #endregion
 
-                #region "BinaryExpression"
+                    #region "BinaryExpression"
 
                 case "BinaryExpression":
                     var binary = (syntax as BinaryExpression);
@@ -215,9 +224,9 @@ namespace Storm
 
                     break;
 
-                #endregion
+                    #endregion
 
-                #region "CallExpression"
+                    #region "CallExpression"
 
                 case "CallExpression":
                     var call = (syntax as CallExpression);
@@ -227,7 +236,29 @@ namespace Storm
                     sb.Append(")");
                     break;
 
-                #endregion
+                    #endregion
+
+                #region "IfStatement"
+
+                case "IfStatement":
+                    var @if = (syntax as IfStatement);
+                    sb.Append(string.Format("if({0})", @if.Test.ToString()));
+                    sb.Append("{");
+                    sb.Append(@if.Consequent.ToString());
+                    sb.Append("}");
+
+                    if(@if.Alternate != null)
+                    {
+                        sb.Append("else");
+                        sb.Append("{");
+                        sb.Append(@if.Alternate.ToString());
+                        sb.Append("}");
+                    }
+
+                    break;
+
+                    #endregion
+
             }
 
             return sb.ToString();

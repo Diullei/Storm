@@ -53,7 +53,9 @@
     <Compile Include="CsCode\BaseTest.cs" />
     <Compile Include="CsCode\BinaryExpressionTest.cs" />
     <Compile Include="CsCode\CallExpressionTest.cs" />
+    <Compile Include="CsCode\CastObjectTest.cs" />
     <Compile Include="CsCode\EvalTest.cs" />
+    <Compile Include="CsCode\IfStatementTest.cs" />
     <Compile Include="CsCode\VarDeclarationWithIntInitAndSetValueTest.cs" />
     <Compile Include="CsCode\VarDeclarationWithoutInitTest.cs" />
     <Compile Include="CsCode\VarDeclarationWithIntInitTest.cs" />

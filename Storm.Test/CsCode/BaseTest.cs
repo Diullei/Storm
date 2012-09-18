@@ -33,7 +33,8 @@ namespace Storm.Test.CsCode
             {
                 var script = Script.Compile(CodeGenerator, Context, source);
 
-                const int rate = 10000000;
+                //const int rate = 10000000;
+                const int rate = 10;
                 var ini = DateTime.Now;
                 for (var i = 0; i < rate; i++)
                 {
