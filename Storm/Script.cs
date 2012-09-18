@@ -21,6 +21,11 @@ namespace Storm
             dynamic tree = null;
             try
             {
+                /*if(context.Scope.Obj != null)
+                {
+                    source = string.Format("(function(){{{0}}})();", source);
+                }*/
+
                 tree = new Esprima.NET.Esprima().Parse(new CsCodeGeneration(debugMode, context), source);
             }
             catch (Esprima.NET.Esprima.Error ex)

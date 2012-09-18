@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Dynamic;
+using Esprima.NET.Ex;
 
 namespace Storm
 {
@@ -30,6 +31,8 @@ namespace Storm
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
+            if (!DynamicProperties.ContainsKey(binder.Name))
+                throw new ReferenceError(binder.Name);
             result = DynamicProperties[binder.Name];
             return true;
         }

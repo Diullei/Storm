@@ -216,8 +216,8 @@ namespace Storm
 
                 case "Literal":
                     var literal = (syntax as Literal);
-                    if (literal.IsString) sb.Append("\"");
-                    sb.Append(literal.Value.Replace("\"", "\\\""));
+                    if (literal.IsString) sb.Append("@\"");
+                    sb.Append(literal.Value.Replace("\"", "\"\""));
                     if (literal.IsString) sb.Append("\"");
 
                     break;
@@ -263,13 +263,23 @@ namespace Storm
                     sb.Append("(");
                     sb.Append(binary.Left.ToString());
 
-                    if (binary.Operator == "!==")
-                        sb.Append(".ToString()");
+                    var op = binary.Operator;
 
-                    sb.Append(string.Format(" {0} ", binary.Operator == "!==" ? "!=" : binary.Operator));
+                    if (binary.Operator == "!==")
+                    {
+                        sb.Append(".ToString()");
+                        op = "!=";
+                    }
+                    else if (binary.Operator == "===")
+                    {
+                        sb.Append(".ToString()");
+                        op = "==";
+                    }
+
+                    sb.Append(string.Format(" {0} ", op));
                     sb.Append(binary.Right.ToString());
 
-                    if (binary.Operator == "!==")
+                    if (binary.Operator == "!==" || binary.Operator == "===")
                         sb.Append(".ToString()");
 
                     sb.Append(")");
@@ -321,6 +331,13 @@ namespace Storm
 
                     #endregion
 
+                    #region "EmptyStatement"
+
+                case "EmptyStatement":
+                    sb.Append("");
+                    break;
+
+                    #endregion
             }
 
             return sb.ToString();

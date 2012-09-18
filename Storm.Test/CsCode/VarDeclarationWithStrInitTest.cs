@@ -19,7 +19,7 @@ namespace Storm.Test.CsCode
 
                 + "public override object Exec()"
                 + "{"
-                    + "((dynamic)this).x = \"string\";"
+                    + "((dynamic)this).x = @\"string\";"
                     + "return JsObject.Undefined;"
                 + "}"
             + "}";
