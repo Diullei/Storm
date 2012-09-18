@@ -6,12 +6,13 @@ namespace Storm.Test.CsCode
     [TestClass]
     public class EvalTest : BaseTest
     {
-        protected string Code = "var x = 3; var y = 33; eval('x = 1'); y = 9; inspectX(x); inspectY(y)";
+        protected string Code = "var x = 3; var y = 33; eval('x = 1; var f = 321'); y = 9; inspectX(x); inspectY(y); inspectF(f)";
 
         public override void CustomInitialize()
         {
             Context.SetFunction<object>("inspectX", (val) => Assert.AreEqual(1, val));
             Context.SetFunction<object>("inspectY", (val) => Assert.AreEqual(9, val));
+            Context.SetFunction<object>("inspectF", (val) => Assert.AreEqual(321, val));
         }
 
         [TestMethod]

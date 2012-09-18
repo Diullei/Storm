@@ -3,7 +3,7 @@ using System.Dynamic;
 
 namespace Storm
 {
-    public abstract class JsObject //: DynamicObject
+    public abstract class JsObject : DynamicObject
     {
         protected JsObject(IDebugger debugger)
         {
@@ -17,5 +17,19 @@ namespace Storm
 
         public Dictionary<string, dynamic> PrivateMember = new Dictionary<string, dynamic>();
         public abstract object Exec();
+
+        public Dictionary<string, object> DynamicProperties = new Dictionary<string, object>();
+
+        public override bool TrySetMember(SetMemberBinder binder, object value)
+        {
+            DynamicProperties[binder.Name] = value;
+            return true;
+        }
+
+        public override bool TryGetMember(GetMemberBinder binder, out object result)
+        {
+            result = DynamicProperties[binder.Name];
+            return true;
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace Storm
             return Compile(code, context, source, null);
         }
 
-        private static void CloneProperties(Context context, object original, object target)
+        private static void CloneProperties(Context context, JsObject original, JsObject target)
         {
             if (original != null)
             {
@@ -52,7 +52,15 @@ namespace Storm
                     var originalProperty = original.GetType().GetProperty(v, BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
                     var targetProperty = target.GetType().GetProperty(v, BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
                     if (targetProperty != null)
-                        targetProperty.SetValue(target, originalProperty.GetValue(original));
+                    {
+                        if (originalProperty != null)
+                            targetProperty.SetValue(target, originalProperty.GetValue(original));
+                    }
+                    else
+                    {
+                        if (originalProperty != null)
+                            target.DynamicProperties[v] = originalProperty.GetValue(original);
+                    }
                 });
             }
         }

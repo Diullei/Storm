@@ -153,7 +153,10 @@ namespace Storm
 
                 case "Identifier":
                     var identifier = (syntax as Identifier);
-                    sb.Append(identifier.Name);
+                    if (this.DeclarationContext)
+                        sb.Append(identifier.Name);
+                    else
+                        sb.Append("((dynamic)this)." + identifier.Name);
 
                     break;
 
