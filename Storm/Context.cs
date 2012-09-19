@@ -5,6 +5,10 @@ namespace Storm
 {
     public class Context
     {
+        public Context():this(new Scope())
+        {
+        }
+
         public Context(Scope scope)
         {
             Scope = scope;

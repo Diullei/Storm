@@ -43,6 +43,11 @@ namespace Storm
             return code.GetCsCode(tree);
         }
 
+        public static Script Compile(string source)
+        {
+            return Compile(new Code(), new Context(new Scope()), source, null);
+        }
+
         public static Script Compile(Code code, Context context, string source)
         {
             return Compile(code, context, source, null);
