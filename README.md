@@ -1,5 +1,5 @@
 
-![Storm](/https://raw.github.com/Diullei/Storm/master/storm-logo.png)
+![Storm](https://raw.github.com/Diullei/Storm/master/storm-logo.png)
 
 Storm
 =====
