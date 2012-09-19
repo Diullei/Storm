@@ -64,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SputnikV1\07_Lexical_Conventions\7.2_White_Space\_7_2_White_Space.cs" />
     <Compile Include="SputnikV1\07_Lexical_Conventions\7.3_Line_Terminators\_7_3_Line_Terminators.cs" />
+    <Compile Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\_7_4_Comments.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SputnikV1\AUTHORS" />
@@ -159,21 +160,21 @@
     <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A7_T6.js" />
     <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A7_T7.js" />
     <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A7_T8.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A1_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A1_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A2_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A2_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A3.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T1.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T2.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T3.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T4.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T5.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T6.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T7.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A5.global_and_array.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A5.js" />
-    <Content Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A6.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A1_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A1_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A2_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A2_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A3.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T1.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T2.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T3.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T4.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T5.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T6.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A4_T7.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A5.global_and_array.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A5.js" />
+    <EmbeddedResource Include="SputnikV1\07_Lexical_Conventions\7.4_Comments\S7.4_A6.js" />
     <Content Include="SputnikV1\07_Lexical_Conventions\7.5_Tokens\7.5.1_Reserved_Words\S7.5.1_A1.1.js" />
     <Content Include="SputnikV1\07_Lexical_Conventions\7.5_Tokens\7.5.1_Reserved_Words\S7.5.1_A1.2.js" />
     <Content Include="SputnikV1\07_Lexical_Conventions\7.5_Tokens\7.5.1_Reserved_Words\S7.5.1_A1.3.js" />

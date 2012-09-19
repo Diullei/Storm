@@ -13,7 +13,9 @@ namespace Storm.Test.CsCode
             + "{"
                 + "private System.Func<System.String,System.Object> eval;"
 
-                + "public C0(System.Func<System.String,System.Object> eval, IDebugger debugger):base(debugger){this.eval = eval;}"
+                + "private System.Func<System.Object,System.Boolean> isNaN;"
+
+                + "public C0(System.Func<System.String,System.Object> eval, System.Func<System.Object,System.Boolean> isNaN, IDebugger debugger):base(debugger){this.eval = eval;this.isNaN = isNaN;}"
 
                 + "private object x{get;set;}"
 

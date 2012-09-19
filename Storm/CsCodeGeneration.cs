@@ -191,7 +191,7 @@ namespace Storm
                             }
                             else
                             {
-                                sb.Append("JsObject.Null");
+                                sb.Append("JsObject.Undefined");
                             }
                         }
                     }
@@ -203,10 +203,18 @@ namespace Storm
 
                 case "Identifier":
                     var identifier = (syntax as Identifier);
+
+                    var name = identifier.Name.Replace("$", "@");
+
+                    if(name == "String" || name == "string")
+                    {
+                        name = "@" + name;
+                    }
+
                     if (this.DeclarationContext)
-                        sb.Append(identifier.Name.Replace("$", "@"));
+                        sb.Append(name);
                     else
-                        sb.Append("((dynamic)this)." + identifier.Name.Replace("$", "@"));
+                        sb.Append("((dynamic)this)." + name);
 
                     break;
 
@@ -267,19 +275,25 @@ namespace Storm
 
                     if (binary.Operator == "!==")
                     {
-                        sb.Append(".ToString()");
                         op = "!=";
                     }
                     else if (binary.Operator == "===")
                     {
-                        sb.Append(".ToString()");
                         op = "==";
+                    }
+                    else if (binary.Operator == "!=")
+                    {
+                        sb.Append(".ToString()");
+                    }
+                    else if (binary.Operator == "==")
+                    {
+                        sb.Append(".ToString()");
                     }
 
                     sb.Append(string.Format(" {0} ", op));
                     sb.Append(binary.Right.ToString());
 
-                    if (binary.Operator == "!==" || binary.Operator == "===")
+                    if (binary.Operator == "!=" || binary.Operator == "==")
                         sb.Append(".ToString()");
 
                     sb.Append(")");
@@ -338,6 +352,52 @@ namespace Storm
                     break;
 
                     #endregion
+
+                    #region "UpdateExpression"
+
+                case "UpdateExpression":
+                    var update = (syntax as UpdateExpression);
+                    //if (update.Prefix)
+                    //{
+                    //    sb.Append(update.Operator);
+                    //}
+
+                    //sb.Append(update.Argument.ToString());
+                    sb.AppendFormat("{0} = JsObject.PlusPlus({0}, {1})", update.Argument.ToString(), update.Prefix.ToString().ToLower());
+
+                    //if (!update.Prefix)
+                    //{
+                    //    sb.Append(update.Operator);
+                    //}
+
+                    break;
+
+                    #endregion
+
+                #region "MemberExpression"
+
+                case "MemberExpression":
+                    var member = (syntax as MemberExpression);
+                    //sb.AppendFormat("((dynamic){0}).{1}", member.Object.ToString(), member.Property.ToString());
+                    sb.Append(member.Property.ToString());
+
+                    break;
+
+                #endregion
+
+                #region "ArrayExpression"
+
+                case "ArrayExpression":
+                    var array = (syntax as ArrayExpression);
+                    sb.Append("new object[]{");
+
+                    sb.Append(string.Join(", ", array.Elements.Select(el => el.ToString())));
+
+                    sb.Append("}");
+
+                    break;
+
+                #endregion
             }
 
             return sb.ToString();

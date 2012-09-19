@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using Esprima.NET.Ex;
@@ -14,6 +15,25 @@ namespace Storm
         public static Null Null { get { return new Null(); } }
 
         public static Undefined Undefined { get { return new Undefined(); } }
+
+        public static NaN NaN { get { return new NaN(); } }
+
+        public static object PlusPlus(object value, bool prefix)
+        {
+            try
+            {
+                var number = Convert.ToInt32(value);
+                if(prefix)
+                    return ++number;
+                return number++;
+            }
+            catch (Exception)
+            {
+                return NaN;
+            }
+        }
+
+        public Undefined undefined { get { return new Undefined(); } }
 
         protected IDebugger Debugger { get; private set; }
 

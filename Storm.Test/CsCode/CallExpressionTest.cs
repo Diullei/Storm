@@ -22,7 +22,9 @@ namespace Storm.Test.CsCode
 
                 + "private System.Func<System.String,System.Object> eval;"
 
-                + "public C0(System.Action print, System.Action<System.Object> print2, System.Func<System.Object,System.Object> fn, System.Action<System.Object> print3, System.Func<System.String,System.Object> eval, IDebugger debugger):base(debugger){this.print = print;this.print2 = print2;this.fn = fn;this.print3 = print3;this.eval = eval;}"
+                + "private System.Func<System.Object,System.Boolean> isNaN;"
+
+                + "public C0(System.Action print, System.Action<System.Object> print2, System.Func<System.Object,System.Object> fn, System.Action<System.Object> print3, System.Func<System.String,System.Object> eval, System.Func<System.Object,System.Boolean> isNaN, IDebugger debugger):base(debugger){this.print = print;this.print2 = print2;this.fn = fn;this.print3 = print3;this.eval = eval;this.isNaN = isNaN;}"
 
                 + "private object x{get;set;}"
 

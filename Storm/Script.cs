@@ -97,6 +97,8 @@ namespace Storm
                                                 return result;
                                             });
 
+            context.SetFunction("isNaN", (object value) => value == JsObject.NaN);
+
             JsObject instance = null;
 
             if (!_cache.ContainsKey(source))

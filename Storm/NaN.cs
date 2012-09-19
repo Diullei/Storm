@@ -1,23 +1,23 @@
 namespace Storm
 {
-    public class Undefined
+    public class NaN
     {
         public override bool Equals(object obj)
         {
-            return (obj is Undefined);
+            return (obj is NaN);
         }
 
-        public bool Equals(Undefined other)
+        public bool Equals(NaN other)
         {
             return !ReferenceEquals(null, other);
         }
 
-        public static bool operator !=(object a, Undefined b)
+        public static bool operator !=(object a, NaN b)
         {
-            return !(a is Undefined);
+            return !(a is NaN);
         }
 
-        public static bool operator ==(object a, Undefined b)
+        public static bool operator ==(object a, NaN b)
         {
             return !(a != b);
         }
@@ -29,7 +29,7 @@ namespace Storm
 
         public override string ToString()
         {
-            return "undefined";
+            return "NaN";
         }
     }
 }
