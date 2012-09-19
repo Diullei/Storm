@@ -1,8 +1,7 @@
 
 ![Storm](https://raw.github.com/Diullei/Storm/master/storm-logo.png)
 
-Storm
-=====
+********************************************************************
 
 Storm is a javascript engine writtem in C#.
 
