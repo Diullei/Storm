@@ -3,13 +3,13 @@
 
 ********************************************************************
 
-Storm is a javascript engine writtem in C#.
+Storm is a javascript engine written in C#.
 
 > STORM IS UNDER CONSTRUCTION (!)
 
 ### Hello World
 
-Let's look at a Hello World example that takes a JavaScript statement as a string argument, executes it as JavaScript code, and prints the result to console. This example is writtem in c# but any other .NET language can use Storm.
+Let's look at a Hello World example that takes a JavaScript statement as a string argument, executes it as JavaScript code, and prints the result to console. This example is written in c# but any other .NET language can use Storm.
 
 ```c#
 using System;
